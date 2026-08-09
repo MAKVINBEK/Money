@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './app.css';
+import './App.css';
 import { Tracker } from '../features/tracker/Tracker';
 import { Calculator } from '../features/calculator/Calculator';
 
