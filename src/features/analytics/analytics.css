@@ -1,0 +1,211 @@
+.analytics-screen {
+  display: grid;
+  gap: 17px;
+}
+
+.analytics-totals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.analytics-total {
+  min-width: 0;
+  padding: 16px;
+}
+
+.analytics-total__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.analytics-total__icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.analytics-total--income .analytics-total__icon {
+  color: var(--color-income);
+  background: var(--color-income-soft);
+}
+
+.analytics-total--expense .analytics-total__icon {
+  color: var(--color-expense);
+  background: var(--color-expense-soft);
+}
+
+.analytics-total strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 19px;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.analytics-chart-card {
+  padding: 18px;
+}
+
+.analytics-chart-card h2 {
+  font-size: 17px;
+}
+
+.donut-layout {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.8fr) minmax(0, 1.2fr);
+  gap: 15px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.donut-chart {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin: auto;
+  overflow: visible;
+}
+
+.donut-chart circle {
+  transition: stroke-dasharray 250ms ease;
+}
+
+.donut-chart__total {
+  fill: var(--color-text);
+  font-size: 9px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.donut-chart__label {
+  fill: var(--color-text-secondary);
+  font-size: 6px;
+  text-anchor: middle;
+}
+
+.category-breakdown {
+  display: grid;
+  gap: 11px;
+  padding: 0;
+  list-style: none;
+}
+
+.category-breakdown__row {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.category-breakdown__dot {
+  width: 9px;
+  height: 9px;
+  background: var(--category-color);
+  border-radius: 50%;
+}
+
+.category-breakdown__name {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-breakdown__value {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  text-align: right;
+}
+
+.category-breakdown__value strong {
+  display: block;
+  color: var(--color-text);
+  font-size: 12px;
+}
+
+.analytics-insights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.insight-card {
+  min-width: 0;
+  padding: 15px;
+}
+
+.insight-card__icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+  place-items: center;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: 11px;
+}
+
+.insight-card span {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.insight-card strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.comparison-bar {
+  display: grid;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.comparison-bar__row {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.comparison-bar__track {
+  height: 8px;
+  overflow: hidden;
+  background: var(--color-surface-muted);
+  border-radius: 999px;
+}
+
+.comparison-bar__value {
+  height: 100%;
+  min-width: 2px;
+  background: var(--color-primary);
+  border-radius: inherit;
+}
+
+.comparison-bar__row:first-child .comparison-bar__value {
+  background: var(--color-expense);
+}
+
+@media (max-width: 375px) {
+  .donut-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .category-breakdown {
+    grid-template-columns: 1fr;
+  }
+}

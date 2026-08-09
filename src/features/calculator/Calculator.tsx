@@ -180,6 +180,8 @@ export function Calculator() {
           type="button"
           className="calculator__operator"
           onClick={() => chooseOperator('÷')}
+          aria-label="Разделить"
+          aria-pressed={operator === '÷'}
         >
           ÷
         </button>
@@ -194,6 +196,8 @@ export function Calculator() {
           type="button"
           className="calculator__operator"
           onClick={() => chooseOperator('×')}
+          aria-label="Умножить"
+          aria-pressed={operator === '×'}
         >
           ×
         </button>
@@ -208,6 +212,8 @@ export function Calculator() {
           type="button"
           className="calculator__operator"
           onClick={() => chooseOperator('−')}
+          aria-label="Вычесть"
+          aria-pressed={operator === '−'}
         >
           −
         </button>
@@ -222,6 +228,8 @@ export function Calculator() {
           type="button"
           className="calculator__operator"
           onClick={() => chooseOperator('+')}
+          aria-label="Сложить"
+          aria-pressed={operator === '+'}
         >
           +
         </button>
@@ -242,6 +250,7 @@ export function Calculator() {
           type="button"
           className="calculator__equal"
           onClick={handleEqual}
+          aria-label="Равно"
         >
           =
         </button>

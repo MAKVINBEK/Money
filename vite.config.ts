@@ -17,9 +17,9 @@ export default defineConfig({
 
       manifest: {
         id: '/',
-        name: 'Money — учёт финансов',
-        short_name: 'Money',
-        description: 'Приложение для учёта доходов и расходов',
+        name: 'Akcha — личные финансы',
+        short_name: 'Akcha',
+        description: 'Личный учёт доходов, расходов и бюджета — приватно и офлайн',
 
         lang: 'ru',
         start_url: '/',
@@ -28,8 +28,8 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait-primary',
 
-        background_color: '#f3f4f6',
-        theme_color: '#2563eb',
+        background_color: '#F5F7FB',
+        theme_color: '#4F46E5',
 
         categories: ['finance', 'utilities'],
 
@@ -60,7 +60,9 @@ export default defineConfig({
       },
 
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        // Public icons are already included above or referenced by the manifest.
+        // Keeping the generated app shell here avoids duplicate precache entries.
+        globPatterns: ['**/*.{js,css,html}'],
         cleanupOutdatedCaches: true,
       },
     }),

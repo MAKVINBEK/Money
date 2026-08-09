@@ -1,57 +1,184 @@
-.app {
-  width: min(100%, 480px);
-  min-height: 500px;
-  padding: 20px;
-  margin: 40px auto;
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 10px 35px rgb(15 23 42 / 10%);
+.app-shell {
+  width: 100%;
+  max-width: var(--content-width);
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    calc(var(--nav-height) + 34px + env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--color-bg);
 }
- 
-.tabs {
+
+.app-screen {
+  min-width: 0;
+  animation: screen-enter 180ms ease-out;
+}
+
+.app-shell:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.app-shell:focus-visible {
+  outline-offset: -3px;
+}
+
+.screen-loading {
+  display: grid;
+  min-height: 45vh;
+  place-items: center;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.screen-header {
   display: flex;
-  padding: 4px;
-  margin-bottom: 24px;
-  background: #e5e7eb;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.screen-header__title {
+  min-width: 0;
+}
+
+.screen-header h1 {
+  font-size: clamp(25px, 7vw, 31px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.screen-header p {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.section-link {
+  min-height: 44px;
+  padding: 0 4px;
+  color: var(--color-primary);
+  font-weight: 700;
+  background: transparent;
+  border: 0;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.ghost-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  font-weight: 750;
+  border: 0;
   border-radius: 14px;
 }
 
-.tabs button {
-  flex: 1;
-  padding: 12px;
-  color: #6b7280;
-  font-size: 15px;
-  font-weight: 600;
+.primary-button {
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+}
+
+.primary-button:hover {
+  background: var(--color-primary-strong);
+}
+
+.secondary-button {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.danger-button {
+  color: var(--color-expense-text);
+  background: var(--color-expense-soft);
+}
+
+.ghost-button {
+  color: var(--color-text-secondary);
   background: transparent;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-  transition:
-    color 150ms ease,
-    background-color 150ms ease;
 }
 
-.tabs button:hover {
-  color: #111827;
+.field {
+  display: grid;
+  gap: 7px;
 }
 
-.tabs button.active {
-  color: #ffffff;
-  background: #2563eb;
+.field > span,
+.field-label {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 700;
 }
 
-@media (max-width: 520px) {
-  .app {
-    min-height: 100dvh;
+.field input,
+.field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  color: var(--color-text);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
 
-    padding:
-      calc(16px + env(safe-area-inset-top))
-      calc(16px + env(safe-area-inset-right))
-      calc(16px + env(safe-area-inset-bottom))
-      calc(16px + env(safe-area-inset-left));
+.field input::placeholder {
+  color: var(--color-text-tertiary);
+}
 
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
+.field-error {
+  color: var(--color-expense-text);
+  font-size: 13px;
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (min-width: 680px) {
+  body {
+    background:
+      radial-gradient(circle at 20% 0%, var(--color-primary-soft), transparent 34%),
+      var(--color-bg);
+  }
+
+  .app-shell {
+    min-height: calc(100dvh - 32px);
+    margin: 16px auto;
+    border: 1px solid var(--color-border);
+    border-radius: 30px;
+    box-shadow: 0 24px 70px rgb(15 23 42 / 12%);
   }
 }

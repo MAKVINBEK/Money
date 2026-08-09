@@ -10,10 +10,11 @@
 
     <meta
       name="description"
-      content="Приложение для учёта доходов и расходов"
+      content="Личный учёт доходов, расходов и бюджета — приватно и офлайн"
     />
 
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#4F46E5" />
+    <meta name="application-name" content="Akcha" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
@@ -22,17 +23,38 @@
       content="default"
     />
 
-    <meta name="apple-mobile-web-app-title" content="Money" />
+    <meta name="apple-mobile-web-app-title" content="Akcha" />
+
+    <script>
+      try {
+        const storedSettings = localStorage.getItem('akcha-settings');
+        const parsedSettings = storedSettings ? JSON.parse(storedSettings) : null;
+        const settings = parsedSettings?.settings ?? parsedSettings;
+
+        if (settings?.theme === 'light' || settings?.theme === 'dark') {
+          document.documentElement.dataset.theme = settings.theme;
+          document
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute(
+              'content',
+              settings.theme === 'dark' ? '#0D111A' : '#4F46E5',
+            );
+        }
+      } catch {
+        // Invalid or unavailable local data must never block first paint.
+      }
+    </script>
 
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" sizes="any" />
 
     <link
       rel="apple-touch-icon"
       href="/apple-touch-icon-180x180.png"
+      sizes="180x180"
     />
 
-    <title>Money — учёт финансов</title>
+    <title>Akcha — личные финансы</title>
   </head>
 
   <body>
